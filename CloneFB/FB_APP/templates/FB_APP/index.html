@@ -1,0 +1,235 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in to Facebook</title>
+  <link rel="icon" href="{% static 'images/images.png' %}" type="image/x-icon"/>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: aliceblue;
+    }
+    .login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 3px #000; /* Corrected box-shadow value */
+    border-radius: 8px;
+    margin-top: 0;
+}
+    .btn-facebook {
+      background-color: rgb(68, 68, 202);
+      color: #fff;
+      border: none;
+    }
+    .btn-facebook:hover {
+      background-color: #122b4d;
+      color: #f0f2f5;
+    }
+    .form-control {
+      height: 45px;
+      border-radius: 6px;
+    }
+    .btn-success {
+      width: 200px;
+    }
+    .logo {
+      text-align: center;
+      top: 6rem;
+      font-size: 3.5rem;
+      font-weight: bolder;
+      color:#0667f9;
+    }
+    .btn-custom{
+      background-color: #0667f9;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .btn-custom:hover{
+      color: #fff;
+    }
+
+    .logo-custom {
+      text-align: center;
+      top: 6rem;
+      font-weight: bolder;
+      color: #0667f9;
+    }
+
+    /* Flexbox layout for larger screens */
+    @media (min-width: 992px) {
+      .container-fluid {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .login-container {
+        margin: 0;
+        width: 400px;
+      }
+      .logo-custom {
+      display: none;
+      }
+      .mb-custom{
+      display: none;
+    }
+    .foot1, .foot2, .foot3, .foot4{
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+    }
+    }
+
+    /* Linear layout for mobile screens */
+    @media (max-width: 991px) {
+      .logo {
+        position: static;
+        margin-bottom: 20px;
+      }
+      .login-container {
+        margin: 20px auto;
+        width: 350px;
+      }
+      section{
+        display: none;
+      }
+      .section{
+      margin-top: 7rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+      .mb-custom{
+      font-weight: lighter;
+    }
+    .foot1, .foot2, .foot3, .foot4{
+      display: none;
+    }
+    }
+    .text-left{
+      display: flex;
+      align-items: baseline;
+      flex-direction: column;
+    }
+    .b{
+      font-size: 1.5rem;
+    }
+    .bold{
+        text-decoration: none;
+        color: #000;
+    }
+    #center{
+        display: flex;
+        gap: 4px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+   <section>
+    <div class="text-center text-left">
+      <h1 class="fa fa-facebook logo">facebook</h1>
+      <p class="b">Facebook helps you connect and <br>
+         share with the people in your life.</p>
+    </div>
+   </section>
+
+   <div class="section">
+    
+   <h1 class="fa fa-facebook logo-custom">facebook</h1>
+   <div class="login-container text-center">
+     <h3 class="mb-4 mb-custom">Log in to Facebook</h3>
+     <form method="post">
+        {% csrf_token %}
+       <div class="form-group">
+         <input type="email" class="form-control" name="email" id="email" placeholder="Email address">
+       </div>
+       <div class="form-group">
+         <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+       </div>
+       <button type="submit" class="btn btn-custom btn-block">Log In</button>
+       <div class="mt-3">
+         <a href="#">Forgotten password?</a>
+       </div>
+       <hr>
+       <button type="button" class="btn  btn-success">Create New Account</button>
+     </form>
+   </div>
+   <span id="center"><a href="" class="bold">Create a Page </a> for a celebrity, brand or business.</span>
+   </div> 
+
+  </div>
+  <footer class="foot">
+    <div class="foot1">
+      <p>English(UK)</p>
+      <p>Hausa</p>
+      <p>Francais(France)</p>
+      <p>Portugues(Brazil)</p>
+      <p>Espanol</p>
+      <p>العربية
+      </p>
+      <p>Bahasa Indonesia</p>
+      <p>Deutsch
+      </p>
+      <p>日本語
+      </p>
+      <p>Italiano
+      </p>
+      <p>हिन्दी
+      </p>
+    </div>
+    <hr>
+    <div class="foot2">
+      <p>Sign Up</p>
+      <p>Log In</p>
+      <p>Messenger</p>
+      <p>Facebook lite</p>
+      <p>Video</p>
+      <p>Places</p>
+      <p>Games</p>
+      <p>Market Place</p>
+      <p>Meta Play</p>
+      <p>Meta Store</p>
+    </div>
+    <div class="foot3">
+      <p>Meta Quest</p>
+      <p>Meta AI</p>
+      <p>Instagram</p>
+      <p>Threads</p>
+      <p>Fundraisers</p>
+      <p>Services</p>
+      <p>Voting Information Centre</p>
+      <p>Privacy Policy</p>
+      <p>Privacy Center</p>
+      <p>Groups</p>
+    </div>
+    <div class="foot4">
+      <p>About</p>
+      <p>Create Ad</p>
+      <p>Create Page</p>
+      <p>Developers</p>
+      <p>Careers</p>
+      <p>Cookies</p>
+      <p>AdChoices</p>
+      <p>Terms</p>
+      <p>Help</p>
+      <p>Contact uploading and non-users</p>
+    </div>
+    <span>Meta &copy 2024</span>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
